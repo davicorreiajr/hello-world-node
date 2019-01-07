@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 
 const port = 8000;
@@ -9,5 +9,5 @@ app.listen(port, () => {
 });
 
 app.get('/url', (req, res) => {
-  res.json(['Bleus', 'Lisa', 'Michael', 'Ginger', 'Food']);
+  res.json(['Bleus', 'Test', 'Michael', 'Ginger', 'Food']);
 });
