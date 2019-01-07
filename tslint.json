@@ -1,5 +1,5 @@
 {
-	"extends": "tslint:latest",
+	"extends": "tslint:recommended",
 	"rules": {
 		"no-unnecessary-type-assertion": true,
 		"array-type": [true, "array"],
@@ -69,7 +69,7 @@
 		"forin": false,
 		"member-access": [true, "no-public"],
 		"no-conditional-assignment": false,
-		"no-console": false,
+		"no-console": [true, "log", "error"],
 		"no-debugger": false,
 		"no-empty-interface": false,
 		"no-eval": false,
@@ -83,7 +83,7 @@
 		"trailing-comma": false,
 
 		"align": false,
-		"eofline": false,
+		"eofline": true,
 		"max-line-length": false,
 		"no-consecutive-blank-lines": false,
 		"space-before-function-paren": false

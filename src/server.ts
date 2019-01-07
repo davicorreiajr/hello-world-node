@@ -1,13 +1,15 @@
-import express from 'express';
-const app = express();
+import app from './app';
 
-const port = 8000;
+const PORT = app.get('port');
+const MODE = app.get('env');
 
-app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server running on port ${port}`);
+const server = app.listen(PORT, () => {
+  // tslint:disable-next-line:no-console
+  console.log(`Server listening to port ${PORT} in ${MODE} mode`);
 });
 
 app.get('/url', (req, res) => {
   res.json(['Bleus', 'Test', 'Michael', 'Ginger', 'Food']);
 });
+
+export default server;
