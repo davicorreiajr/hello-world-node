@@ -1,0 +1,11 @@
+{
+  "name": "hello-world",
+  "version": "0.1.0",
+  "description": "Learning node with express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "davicorreiajr",
+  "license": "ISC"
+}
