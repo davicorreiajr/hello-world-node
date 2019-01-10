@@ -1,4 +1,5 @@
 import { JsonController, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
+import { Bleus } from './request-schemas';
 
 @JsonController('/bleus')
 export class BleusController {
@@ -14,13 +15,13 @@ export class BleusController {
   }
 
   @Post()
-  post(@Body() bleus: any) {
-    return 'Saving bleus...';
+  post(@Body() bleus: Bleus) {
+    return bleus;
   }
 
   @Put('/:id')
-  put(@Param('id') id: number, @Body() bleus: any) {
-    return 'Updating a bleus...';
+  put(@Param('id') id: number, @Body() bleus: Bleus) {
+    return bleus;
   }
 
   @Delete('/:id')
