@@ -1,8 +1,13 @@
 import { JsonController, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
 import { Bleus } from './request-schemas';
+import { CreateBleusUseCase } from '../domain';
 
 @JsonController('/bleus')
 export class BleusController {
+
+  constructor(
+    private createBleusUseCase: CreateBleusUseCase
+  ) {}
 
   @Get()
   getAll() {
@@ -16,7 +21,8 @@ export class BleusController {
 
   @Post()
   post(@Body() bleus: Bleus) {
-    return bleus;
+    const { name, email } = bleus;
+    return this.createBleusUseCase.execute(name, email);
   }
 
   @Put('/:id')
