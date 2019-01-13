@@ -2,8 +2,6 @@
   "type": "postgres",
   "host": "localhost",
   "port": 5432,
-  "username": "davicorreiajr",
-  "password": "mudar123",
   "database": "development",
   "synchronize": false,
   "migrationsRun": true,
