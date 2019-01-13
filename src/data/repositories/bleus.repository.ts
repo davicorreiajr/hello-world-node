@@ -24,4 +24,13 @@ export class BleusRepository {
   async getOne(id: number): Promise<Bleus> {
     return await this.repository.findOne(id);
   }
+
+  async update(bleus: Bleus): Promise<Bleus> {
+    return await this.repository.save(bleus);
+  }
+
+  async delete(id: number) {
+    const bleusToDelete = await this.repository.findOne(id);
+    return await this.repository.remove(bleusToDelete);
+  }
 }

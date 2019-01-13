@@ -1,6 +1,6 @@
 import { JsonController, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
 import { Bleus } from '../data';
-import { CreateBleusUseCase, GetAllBleusUseCase, GetBleusUseCase } from '../domain';
+import { CreateBleusUseCase, GetAllBleusUseCase, GetBleusUseCase, UpdateBleusUseCase, DeleteBleusUseCase } from '../domain';
 
 @JsonController('/bleus')
 export class BleusController {
@@ -8,7 +8,9 @@ export class BleusController {
   constructor(
     private createBleusUseCase: CreateBleusUseCase,
     private getAllBleusUseCase: GetAllBleusUseCase,
-    private getBleusUseCase: GetBleusUseCase
+    private getBleusUseCase: GetBleusUseCase,
+    private updateBleusUseCase: UpdateBleusUseCase,
+    private deleteBleusUseCase: DeleteBleusUseCase
   ) {}
 
   @Get()
@@ -27,13 +29,13 @@ export class BleusController {
     return this.createBleusUseCase.execute(name, email);
   }
 
-  @Put('/:id')
-  put(@Param('id') id: number, @Body() bleus: Bleus) {
-    return bleus;
+  @Put()
+  put(@Body() bleus: Bleus) {
+    return this.updateBleusUseCase.execute(bleus);
   }
 
   @Delete('/:id')
   remove(@Param('id') id: number) {
-    return 'Removing bleus...';
+    return this.deleteBleusUseCase.execute(id);
   }
 }
