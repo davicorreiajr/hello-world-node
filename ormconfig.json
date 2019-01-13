@@ -1,0 +1,25 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "davicorreiajr",
+  "password": "mudar123",
+  "database": "development",
+  "synchronize": false,
+  "migrationsRun": true,
+  "logging": false,
+  "entities": [
+    "dist/data/entities/**/*.js"
+  ],
+  "migrations": [
+    "dist/data/migrations/**/*.js"
+  ],
+  "subscribers": [
+    "dist/data/subscribers/**/*.js"
+  ],
+  "cli": {
+    "entitiesDir": "src/data/entities",
+    "migrationsDir": "src/data/migrations",
+    "subscribersDir": "src/data/subscribers"
+  }
+}
