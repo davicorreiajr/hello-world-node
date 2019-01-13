@@ -7,7 +7,7 @@
   "database": "development",
   "synchronize": false,
   "migrationsRun": true,
-  "logging": false,
+  "logging": true,
   "entities": [
     "dist/data/entities/**/*.js"
   ],
