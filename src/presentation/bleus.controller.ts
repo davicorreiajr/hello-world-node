@@ -1,5 +1,5 @@
 import { JsonController, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
-import { Bleus } from './request-schemas';
+import { Bleus } from '../data';
 import { CreateBleusUseCase, GetAllBleusUseCase } from '../domain';
 
 @JsonController('/bleus')
