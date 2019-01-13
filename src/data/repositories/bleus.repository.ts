@@ -16,4 +16,8 @@ export class BleusRepository {
     bleus.name = name;
     return await this.repository.save(bleus);
   }
+
+  async getAll(): Promise<Bleus[]> {
+    return await this.repository.find();
+  }
 }
