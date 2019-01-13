@@ -20,4 +20,8 @@ export class BleusRepository {
   async getAll(): Promise<Bleus[]> {
     return await this.repository.find();
   }
+
+  async getOne(id: number): Promise<Bleus> {
+    return await this.repository.findOne(id);
+  }
 }
