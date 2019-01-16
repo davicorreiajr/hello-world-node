@@ -40,11 +40,6 @@
     "typeorm": "^0.2.11",
     "typescript": "^3.2.2"
   },
-  "husky": {
-    "hooks": {
-      "precommit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "{src,test}/**/*.ts*": [
       "tslint {src,test}/**/*.ts --fix",
