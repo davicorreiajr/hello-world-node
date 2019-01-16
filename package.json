@@ -39,7 +39,7 @@
     "typescript": "^3.2.2"
   },
   "lint-staged": {
-    "{src,test}/**/*.ts": [
+    "src/**/*.ts": [
       "tslint src/**/*.ts --fix",
       "git add"
     ]
