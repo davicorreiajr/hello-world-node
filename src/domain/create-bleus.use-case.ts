@@ -1,5 +1,5 @@
-import {Service } from 'typedi';
-import {BleusRepository } from '../data';
+import { Service } from 'typedi';
+import { BleusRepository } from '../data';
 
 @Service()
 export class CreateBleusUseCase {
