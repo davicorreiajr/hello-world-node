@@ -5,28 +5,22 @@ import { Application } from 'express';
 export default function setUpDatabase(app: Application, controller: Function) {
   beforeAll(async () => {
     await createConnection({
-      type: 'postgres',
-      // tslint:disable-next-line:object-literal-sort-keys
-      host: 'localhost',
-      port: 5432,
       database: 'development',
-      synchronize: false,
-      migrationsRun: true,
-      logging: true,
       entities: [
         'src/data/entities/**/*.ts'
       ],
+      host: 'localhost',
+      logging: true,
       migrations: [
         'src/data/migrations/**/*.ts'
       ],
+      migrationsRun: true,
+      port: 5432,
       subscribers: [
         'src/data/subscribers/**/*.ts'
       ],
-      cli: {
-        entitiesDir: 'src/data/entities',
-        migrationsDir: 'src/data/migrations',
-        subscribersDir: 'src/data/subscribers'
-      }
+      synchronize: false,
+      type: 'postgres'
     });
     useExpressServer(app, {
       controllers: [controller]
