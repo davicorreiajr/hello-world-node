@@ -11,7 +11,6 @@ describe('Bleus get all', () => {
       .get('/bleus')
       .set('Content-Type', 'application/json')
       .then(response => {
-        // console.log(response.body);
         expect(response.status).toBe(200);
         done();
       });
