@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import request from 'supertest';
 import app from '../../src/app';
 import { useExpressServer } from 'routing-controllers';
