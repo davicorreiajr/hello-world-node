@@ -1,16 +1,15 @@
 import { useExpressServer } from 'routing-controllers';
-import { createConnection, getConnection } from 'typeorm';
+import { createConnection, getConnection, getRepository } from 'typeorm';
 import { Application } from 'express';
 
 export default function setUpDatabase(app: Application, controller: Function) {
   beforeAll(async () => {
     await createConnection({
-      database: 'development',
+      database: 'test',
       entities: [
         'src/data/entities/**/*.ts'
       ],
       host: 'localhost',
-      logging: true,
       migrations: [
         'src/data/migrations/**/*.ts'
       ],
@@ -27,5 +26,9 @@ export default function setUpDatabase(app: Application, controller: Function) {
     });
   });
 
-  afterAll(() => getConnection().close());
+  afterAll(async () => {
+    const entities = getConnection().entityMetadatas.map(entityMetadata => entityMetadata.name);
+    for (const entity of entities) await getRepository(entity).query(`TRUNCATE TABLE ${entity} RESTART IDENTITY`);
+    getConnection().close();
+  });
 }
